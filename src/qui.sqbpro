@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="quiz" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1652"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="QUIZ" custom_title="0" dock_id="1" table="4,4:mainQUIZ"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000011000ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">DROP TABLE IF EXISTS USER;
+CREATE TABLE USER(
+user TEXT NOT NULL PRIMARY KEY,
+pass TEXT NOT NULL,
+type TEXT NOT NULL);
+
+DROP TABLE IF EXISTS QUIZ;
+CREATE TABLE QUIZ(
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+numb INTEGER NOT NULL,
+release TEXT NOT NULL,
+expire TEXT NOT NULL,
+problem TEXT NOT NULL,
+tests TEXT NOT NULL,
+results TEXT NOT NULL,
+diagnosis TEXT NOT NULL);
+
+DROP TABLE IF EXISTS USERQUIZ;
+CREATE TABLE USERQUIZ(
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+userid TEXT NOT NULL,
+quizid INTEGER NOT NULL,
+sent TEXT NOT NULL,
+answer TEXT NOT NULL,
+result TEXT NOT NULL);
+
+Delete from USER;
+Insert into QUIZ(numb, release, expire, problem, tests, results, diagnosis) values (1, '2018-08-01','2018-12-31 23:59:59','Exemplo de problema','[[1],[2],[3]]','[0, 0, 0]','[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]');
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
